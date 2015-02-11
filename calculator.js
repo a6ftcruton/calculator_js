@@ -3,7 +3,7 @@ var Calculator = {};
 var pushButton = function() {
   $('.key').mousedown(function() {
     $(this).addClass("pressed").mouseup(function() {
-      $(this).removeClass("pressed");
+      $(this).removeClass("pressed")
     });
   });
 };
