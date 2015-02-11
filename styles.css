@@ -46,15 +46,18 @@ body {
   top: 170px;
   right: 0 !important;
 }
-.key,
-.decimal {
+.key {
+  color: #182151;
   background-color: #9da3c1;
+  border: none;
+  transition: color 0.15s ease;
+  transition: background-color 0.15s ease;
+  transition: border 0.15s ease;
 }
 .number, 
 .operator,
 .decimal {
   border-radius: 10px;
-  color: #182151;
   margin: 5px;
 }
 .number {
@@ -76,4 +79,9 @@ body {
 }
 .zero {
   width: 190px;
+}
+.pressed {
+  color: white;
+  background-color: #6e76a0;
+  //border: 1px solid #182151;
 }
