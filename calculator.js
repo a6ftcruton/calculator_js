@@ -1,6 +1,6 @@
 var Calculator = {};
 
-var pushButton = function() {
+var buttonPushAddsClass = function() {
   $('.key').mousedown(function() {
     $(this).addClass("pressed").mouseup(function() {
       $(this).removeClass("pressed")
@@ -8,12 +8,35 @@ var pushButton = function() {
   });
 };
 
+//break this up into 2 functions
+var storeKeysPressed = function() {
+  var results = "";
+  $('.key').click(function() {
+    results += ($(this).html());
+    console.log(results);
+    $('.equals').click(function() {
+      $('.results').html( eval(results) );
+    });
+  });
+}
+
+var appendNumber = function() {
+  $('.key.number').click(function() {
+    $('.results').append($(this).html());
+  });
+}
+
+var pressOperator = function() {
+  $('.key.operator').click(function() {
+      $('.results').empty();
+  });
+}
+
 Calculator.init = function() {
-  //add
-  //subtract
-  //multiply
-  //divide
-  pushButton();
+  appendNumber();
+  pressOperator();
+  storeKeysPressed();
+  buttonPushAddsClass();
 };
 
 
