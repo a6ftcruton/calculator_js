@@ -43,6 +43,7 @@ body {
   color: #182151;
   font-family: 'Aldrich';
   font-size: 4em;
+  overflow: hidden;
 }
 .key-wrapper,
 .operator-wrapper {

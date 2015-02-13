@@ -24,18 +24,22 @@ var evaluateExpression = function() {
   var results = "";
   //store keys pressed
   $('.key').click(function() {
-    results += ($(this).html());
-    //  console.log(results)
-  //print results
-    $('.equals').click(function() {
-      printResults(results); 
-    });
-  //clear results
-    $('.clear').click(function() {
-      results = "" 
-      clearDisplay();
-    });
-
+    if ( $('.results').html().length >= 9 ) {
+      $('.results').css("font-size", "2em");
+    } else {
+      results += ($(this).html());
+        console.log(results)
+    //print results
+      $('.equals').click(function() {
+        results = eval(results)
+        printResults(results); 
+      });
+    //clear results
+      $('.clear').click(function() {
+        results = "" 
+        clearDisplay();
+      });
+   }
   });
 }
 
