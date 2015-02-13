@@ -8,17 +8,37 @@ var buttonPushAddsClass = function() {
   });
 };
 
-//break this up into 2 functions
-var storeKeysPressed = function() {
+var displayResults = function(results) {
+  $('.results').html( eval(results) );
+}
+
+var clearDisplay = function() {
+  $('.results').empty();
+}
+
+var printResults = function(equation) {
+  $('.results').html( eval(equation) );
+}
+
+var evaluateExpression = function() {
   var results = "";
+  //store keys pressed
   $('.key').click(function() {
     results += ($(this).html());
-    console.log(results);
+    //  console.log(results)
+  //print results
     $('.equals').click(function() {
-      $('.results').html( eval(results) );
+      printResults(results); 
     });
+  //clear results
+    $('.clear').click(function() {
+      results = "" 
+      clearDisplay();
+    });
+
   });
 }
+
 
 var appendNumber = function() {
   $('.key.number').click(function() {
@@ -28,14 +48,14 @@ var appendNumber = function() {
 
 var pressOperator = function() {
   $('.key.operator').click(function() {
-      $('.results').empty();
+      clearDisplay();
   });
 }
 
 Calculator.init = function() {
   appendNumber();
   pressOperator();
-  storeKeysPressed();
+  evaluateExpression();
   buttonPushAddsClass();
 };
 
